@@ -2,7 +2,8 @@ namespace Engine
 
 type GameEngine() =
 
-    let mutable state = State.create ()
+    let gameSize = 50
 
-    member _.ComputeWallsRenderInfo() =
-        State.cells state |> Array.collect Cell.renderInfo
+    let mutable state = State.create gameSize
+
+    member _.ComputeWallsRenderInfo() : WallRenderInfo array = [||]

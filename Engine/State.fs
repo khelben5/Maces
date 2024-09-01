@@ -1,15 +1,11 @@
 namespace Engine
 
-type State = private { cells: Cell array }
+open Graphs
+
+type State = private { graph: GridGraph }
 
 module State =
 
-    let private generateCells () =
-        let position = Position.create ()
-        let size = Size.create ()
-        let walls = CellWalls.createFull ()
-        [| Cell.create position size walls |]
+    let create size = { graph = GridGraph.create size size }
 
-    let create () = { cells = generateCells () }
-
-    let cells state = state.cells
+    let getWalls state = GridGraph.edgeCount

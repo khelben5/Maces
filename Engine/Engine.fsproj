@@ -4,11 +4,9 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Position.fs" />
-    <Compile Include="Size.fs" />
     <Compile Include="WallRenderInfo.fs" />
-    <Compile Include="CellWalls.fs" />
     <Compile Include="Cell.fs" />
+    <Compile Include="Wall.fs" />
     <Compile Include="State.fs" />
     <Compile Include="GameEngine.fs" />
   </ItemGroup>

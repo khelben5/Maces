@@ -22,8 +22,9 @@ module Edge =
         else
             Ok { vertexA = vertexA; vertexB = vertexB }
 
-    let connects vertex edge =
-        edge.vertexA = vertex || edge.vertexB = vertex
+    let areEquivalent e1 e2 =
+        e1.vertexA = e2.vertexA && e1.vertexB = e2.vertexB
+        || e1.vertexA = e2.vertexB && e1.vertexB = e2.vertexA
 
-    let description edge =
-        $"({edge.vertexA |> Vertex.description}) - ({edge.vertexB |> Vertex.description})"
+    let describe edge =
+        $"[{Vertex.describe edge.vertexA} <-> {Vertex.describe edge.vertexB}]"

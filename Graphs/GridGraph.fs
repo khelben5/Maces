@@ -30,4 +30,4 @@ module GridGraph =
 
     let edgeCount graph = Array.length graph.edges
 
-    let hasEdge edge graph = graph.edges |> Array.contains edge
+    let edges graph = graph.edges
