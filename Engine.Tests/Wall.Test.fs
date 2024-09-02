@@ -7,8 +7,11 @@ type TestCase =
     { wall: Wall; expected: WallRenderInfo }
 
 let private wallWidth = 4
-let private horizontalWall = Wall.create { x = 2; y = 5 } { x = 2; y = 6 } wallWidth
-let private verticalWall = Wall.create { x = 2; y = 5 } { x = 3; y = 5 } wallWidth
+
+let private horizontalWall =
+    Wall.create (Cell.create 2 5) (Cell.create 2 6) wallWidth
+
+let private verticalWall = Wall.create (Cell.create 2 5) (Cell.create 3 5) wallWidth
 
 let testCases =
     [ [| { wall = horizontalWall

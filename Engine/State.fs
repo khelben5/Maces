@@ -10,9 +10,8 @@ module State =
 
     let create size = { graph = GridGraph.create size size }
 
-    let private toCell vertex : Cell =
-        { x = Vertex.x vertex
-          y = Vertex.y vertex }
+    let private toCell vertex =
+        Cell.create (Vertex.x vertex) (Vertex.y vertex)
 
     let private toWall edge =
         let vertices = edge |> Edge.vertices

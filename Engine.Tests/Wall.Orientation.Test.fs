@@ -9,17 +9,17 @@ type TestCase =
       expected: Orientation }
 
 let testCases =
-    [ [| { a = { x = 0; y = 0 }
-           b = { x = 0; y = 1 }
+    [ [| { a = Cell.create 0 0
+           b = Cell.create 0 1
            expected = Horizontal } |]
-      [| { a = { x = 0; y = 0 }
-           b = { x = 1; y = 0 }
+      [| { a = Cell.create 0 0
+           b = Cell.create 1 0
            expected = Vertical } |]
-      [| { a = { x = 1; y = 1 }
-           b = { x = 0; y = 1 }
+      [| { a = Cell.create 1 1
+           b = Cell.create 0 1
            expected = Vertical } |]
-      [| { a = { x = 1; y = 1 }
-           b = { x = 1; y = 0 }
+      [| { a = Cell.create 1 1
+           b = Cell.create 1 0
            expected = Horizontal } |] ]
 
 [<Theory>]
