@@ -2,11 +2,10 @@ namespace Engine
 
 type GameEngine() =
 
-    let canvasSize = 1280
-    let cellCount = 10
-    let cellSize = canvasSize / cellCount
-
-    let mutable state = State.create cellCount
+    let config = GameConfig.create ()
+    let mutable state = State.create config.cellCount
 
     member _.ComputeWallsRenderInfo() =
-        state |> State.getWalls |> Seq.map (Wall.renderPosition cellSize)
+        state |> State.getWalls |> Seq.map (Wall.renderPosition config.cellSize)
+
+    member _.getCanvasSize() = config.canvasSize

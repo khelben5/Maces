@@ -23,11 +23,12 @@ public class Maces : Game
 
     protected override void Initialize()
     {
-        _graphics.PreferredBackBufferWidth = 1280;
-        _graphics.PreferredBackBufferHeight = 1280;
+        _engine = new GameEngine();
+        int size = _engine.getCanvasSize();
+        _graphics.PreferredBackBufferWidth = size;
+        _graphics.PreferredBackBufferHeight = size;
         _graphics.ApplyChanges();
         _assetsGenerator = new AssetsGenerator();
-        _engine = new GameEngine();
         base.Initialize();
     }
 
