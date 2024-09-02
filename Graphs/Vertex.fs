@@ -25,4 +25,8 @@ module Vertex =
         else
             Some { vertex with y = vertex.y + 1 }
 
+    let x vertex = vertex.x
+
+    let y vertex = vertex.y
+
     let describe vertex = $"({vertex.x},{vertex.y})"

@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Engine;
+using System.Collections.Generic;
 
 namespace Maces;
 
@@ -23,7 +24,7 @@ public class Maces : Game
     protected override void Initialize()
     {
         _graphics.PreferredBackBufferWidth = 1280;
-        _graphics.PreferredBackBufferHeight = 720;
+        _graphics.PreferredBackBufferHeight = 1280;
         _graphics.ApplyChanges();
         _assetsGenerator = new AssetsGenerator();
         _engine = new GameEngine();
@@ -50,7 +51,7 @@ public class Maces : Game
     {
         GraphicsDevice.Clear(Color.BlanchedAlmond);
 
-        WallRenderInfo[] wallsRenderInfo = _engine.ComputeWallsRenderInfo();
+        IEnumerable<WallRenderInfo> wallsRenderInfo = _engine.ComputeWallsRenderInfo();
 
         _spriteBatch.Begin();
         DrawWalls(wallsRenderInfo);
@@ -59,7 +60,7 @@ public class Maces : Game
         base.Draw(gameTime);
     }
 
-    private void DrawWalls(WallRenderInfo[] wallsRenderInfo)
+    private void DrawWalls(IEnumerable<WallRenderInfo> wallsRenderInfo)
     {
         foreach (var wallRenderInfo in wallsRenderInfo)
         {

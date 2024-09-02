@@ -28,3 +28,5 @@ module Edge =
 
     let describe edge =
         $"[{Vertex.describe edge.vertexA} <-> {Vertex.describe edge.vertexB}]"
+
+    let vertices edge = edge.vertexA, edge.vertexB

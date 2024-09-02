@@ -6,6 +6,7 @@
   <ItemGroup>
     <Compile Include="WallRenderInfo.fs" />
     <Compile Include="Cell.fs" />
+    <Compile Include="Orientation.fs" />
     <Compile Include="Wall.fs" />
     <Compile Include="State.fs" />
     <Compile Include="GameEngine.fs" />
