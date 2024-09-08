@@ -6,10 +6,7 @@
     <IsTestProject>true</IsTestProject>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Utils.fs" />
-    <Compile Include="Vertex.Test.fs" />
-    <Compile Include="Edge.Test.fs" />
-    <Compile Include="GridGraph.Test.fs" />
+    <Compile Include="Graph.Test.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>

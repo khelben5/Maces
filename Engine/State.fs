@@ -2,20 +2,19 @@ namespace Engine
 
 open Graphs
 
-type State = private { graph: GridGraph }
+type State = private { graph: Graph }
 
 module State =
+    open Nodes
 
     let private wallWidth = 8
 
-    let create size = { graph = GridGraph.create size size }
+    let create size = { graph = Graph.createGrid size }
 
-    let private toCell vertex =
-        Cell.create (Vertex.x vertex) (Vertex.y vertex)
+    let private toCell node = Cell.create node.x node.y
 
     let private toWall edge =
-        let vertices = edge |> Edge.vertices
-        Wall.create (vertices |> fst |> toCell) (vertices |> snd |> toCell) wallWidth
+        Wall.create (edge |> fst |> toCell) (edge |> snd |> toCell) wallWidth
 
     let getWalls state =
-        state.graph |> GridGraph.edges |> Seq.map toWall
+        state.graph |> Graph.edges |> Array.map toWall
